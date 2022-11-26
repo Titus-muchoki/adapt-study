@@ -19,7 +19,7 @@ public  class Sql2oViralDao implements ViralDao {
 
     @Override
     public void add(Viral viral) {
-        String sql = "INSERT INTO infections (description, name, categoryId) VALUES (:description, :name, :categoryId)"; //raw sql
+        String sql = "INSERT INTO infections (description, categoryId) VALUES (:description,:categoryId)"; //raw sql
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(viral)
@@ -33,7 +33,7 @@ public  class Sql2oViralDao implements ViralDao {
     @Override
     public List<Viral> getAll() {
         try(Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM infections")
+            return con.createQuery("SELECT from infections")
                     .executeAndFetch(Viral.class);
 
         }
@@ -42,18 +42,18 @@ public  class Sql2oViralDao implements ViralDao {
     @Override
     public Viral findById(int id) {
         try (Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM infections WHERE id = :id")
+            return con.createQuery("SELECT from infections WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Viral.class);
+
         }
     }
 
     @Override
-    public void update(String newName, int id, String newDescription, int newCategoryId) {
-        String sql = "UPDATE infections SET (description, name, categoryId) = (:description, :name, :categoryId) WHERE id=:id";
+    public void update( int id, String newDescription, int newCategoryId) {
+        String sql = "UPDATE infections SET (description, categoryId) = (:description, :categoryId) WHERE id=:id";
         try (Connection con = sql2o.open()){
             con.createQuery(sql)
-                    .addParameter("name", newName)
                     .addParameter("description", newDescription)
                     .addParameter("categoryId", newCategoryId)
                     .addParameter("id", id);
@@ -65,7 +65,7 @@ public  class Sql2oViralDao implements ViralDao {
 
     @Override
     public void deleteById(int id) {
-    String sql = "DELETE * FROM infections WHERE id = :id";
+    String sql = "DELETE from infections WHERE id = :id";
     try (Connection con = sql2o.open()){
         con.createQuery(sql)
                 .addParameter("id", id)
@@ -77,7 +77,7 @@ public  class Sql2oViralDao implements ViralDao {
 
     @Override
     public void clearAllViral() {
-    String sql = " DELETE * FROM infections";
+    String sql = " DELETE from infections";
     try (Connection con = sql2o.open()){
         con.createQuery(sql)
                 .executeUpdate();

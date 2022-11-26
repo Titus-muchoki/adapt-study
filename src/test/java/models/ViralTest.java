@@ -1,45 +1,37 @@
 package models;
-
 import org.junit.Test;
-
 import java.time.LocalDateTime;
-
 import static org.junit.Assert.*;
 
 public class ViralTest {
-
     @Test
-    public void newViralObjectGetsCorrectlyCreated_true() {
+    public void NewViralObjectGetsCorrectlyCreated_true() throws Exception {
         Viral viral = setupNewViral();
-        assertNotNull(viral);
+        assertEquals(true, viral instanceof Viral);
     }
 
     @Test
-    public void ViralInstantiatesWithDescription_true() {
+    public void ViralInstantiatesWithDescription_true() throws Exception {
         Viral viral = setupNewViral();
-        assertEquals("infection", viral.getDescription());
+        assertEquals("Mow the lawn", viral.getDescription());
     }
 
     @Test
-    public void ViralInstantiatesWithName_true() {
+    public void isCompletedPropertyIsFalseAfterInstantiation() throws Exception {
         Viral viral = setupNewViral();
-        assertEquals("infection type", viral.getName());
+        assertEquals(false, viral.isCompleted()); //should never start as completed
     }
 
     @Test
-    public void isCompletedPropertyIsFalseAfterInstantiation() {
+    public void getCreatedAtInstantiatesWithCurrentTimeToday() throws Exception {
         Viral viral = setupNewViral();
-        assertFalse(viral.isCompleted());
+        assertEquals(LocalDateTime.now().getDayOfWeek(), viral.getCreatedAt().getDayOfWeek());
     }
 
-    @Test
-    public void getCreatedAtInstantiatesWithCurrentTimeToday() {
-        Viral viral = setupNewViral();
-        assertEquals(LocalDateTime.now().getDayOfWeek(),viral.getCreatedAt().getDayOfWeek());
+    //helper methods
+    public Viral setupNewViral(){
+        return new Viral("Mow the lawn", 1);
     }
 
-    @Test
-    public   Viral setupNewViral() {
-        return new Viral("infection", " ",1);
-    }
+
 }

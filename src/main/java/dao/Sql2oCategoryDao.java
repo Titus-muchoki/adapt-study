@@ -40,9 +40,10 @@ public class Sql2oCategoryDao implements CategoryDao {
     @Override
     public List<Viral> getAllViralByCategory(int categoryId) {
         try(Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM infections WHERE categoryId = : categoryID")
+            return con.createQuery("SELECT from infections WHERE categoryId = :categoryId")
                     .addParameter("categoryId", categoryId)
                     .executeAndFetch(Viral.class);
+
         }
     }
     @Override
@@ -72,7 +73,7 @@ public class Sql2oCategoryDao implements CategoryDao {
 
     @Override
     public void deleteById(int id) {
-     String sql = "DELETE * FROM categories WHERE id = :id";
+     String sql = "DELETE from categories WHERE id = :id";
      try(Connection con = sql2o.open()) {
          con.createQuery(sql)
                  .addParameter("id", id)
@@ -84,7 +85,7 @@ public class Sql2oCategoryDao implements CategoryDao {
 
     @Override
     public void clearAllCategories() {
-        String sql = " DELETE * FROM categories";
+        String sql = " DELETE from categories";
     try (Connection con = sql2o.open()){
         con.createQuery(sql)
                 .executeUpdate();

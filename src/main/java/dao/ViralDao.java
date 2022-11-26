@@ -19,7 +19,7 @@ public interface ViralDao {
 
     //UPDATE
 
-    void update(String name, int id, String content, int categoryId);
+    void update( int id, String content, int categoryId);
 
     //DELETE
 

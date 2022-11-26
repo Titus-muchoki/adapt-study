@@ -1,0 +1,14 @@
+{{#partial "content"}}
+
+    <h1> List o' tests to do!</h1>
+
+    {{#if infections}}
+        {{#each infections }}
+            <p><a href="/categories/{{categoryId}}/infections/{{id}}">{{description}}</a></p>
+        {{/each}}
+    {{else}}
+        <p>No infections test!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

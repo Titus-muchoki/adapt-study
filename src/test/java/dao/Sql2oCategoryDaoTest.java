@@ -104,9 +104,9 @@ public class Sql2oCategoryDaoTest {
         Category category = setupNewCategory();
         categoryDao.add(category);
         int categoryId = category.getId();
-        Viral newViral = new Viral("mow the lawn", " ",categoryId);
-        Viral otherViral = new Viral("pull weeds", " ", categoryId);
-        Viral thirdViral = new Viral("trim hedge", " ", categoryId);
+        Viral newViral = new Viral("mow the lawn", categoryId);
+        Viral otherViral = new Viral("pull weeds", categoryId);
+        Viral thirdViral = new Viral("trim hedge",  categoryId);
         viralDao.add(newViral);
         viralDao.add(otherViral);
         assertEquals(2, categoryDao.getAllViralByCategory(categoryId).size());
@@ -116,7 +116,30 @@ public class Sql2oCategoryDaoTest {
     }
 
     public Category setupNewCategory(){
-        return new Category("viral");
+        return new Category("mow the lawn");
     }
 
+    @Test
+    public void testEquals() {
+    }
+
+    @Test
+    public void testHashCode() {
+    }
+
+    @Test
+    public void getName() {
+    }
+
+    @Test
+    public void setName() {
+    }
+
+    @Test
+    public void getId() {
+    }
+
+    @Test
+    public void setId() {
+    }
 }
