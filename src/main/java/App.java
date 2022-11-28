@@ -28,7 +28,6 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<Category> allCategories = categoryDao.getAll();
             model.put("categories", allCategories);
-            model = new HashMap<>();
             List<Viral> infections = viralDao.getAll();
             model.put("infections", infections);
             return new ModelAndView(model, "index.hbs");
@@ -43,7 +42,7 @@ public class App {
             return new ModelAndView(model, "category-form.hbs"); //new layout
         }, new HandlebarsTemplateEngine());
 
-        //post: process a form to create a new category
+      //post: process a form to create a new category
 
         post("/categories", (req, res) -> { //new
             Map<String, Object> model = new HashMap<>();
@@ -64,7 +63,7 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
 
-        //get: delete all infections
+//        //get: delete all infections
 
         get("/infections/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -73,19 +72,19 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
 
-        //get a specific category (and the viral tests it contains)
+//        //get a specific category (and the viral tests it contains)
         get("/categories/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfCategoryToFind = Integer.parseInt(req.params("id")); //new
             Category foundCategory = categoryDao.findById(idOfCategoryToFind);
             model.put("category", foundCategory);
             List<Viral> allViralByCategory = categoryDao.getAllViralByCategory(idOfCategoryToFind);
-            model.put("tasks", allViralByCategory);
+            model.put("infections", allViralByCategory);
             model.put("categories", categoryDao.getAll()); //refresh list of links for navbar
             return new ModelAndView(model, "category-detail.hbs"); //new
         }, new HandlebarsTemplateEngine());
 
-        //get: show a form to update a category
+//        //get: show a form to update a category
 
         get("/categories/:id/edit", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -96,7 +95,7 @@ public class App {
             return new ModelAndView(model, "category-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //post: process a form to update a category
+//        //post: process a form to update a category
 
         post("/categories/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -107,7 +106,7 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
 
-        //get: delete an individual viral test
+//        //get: delete an individual viral test
 
         get("/categories/:category_id/infections/:viral_id/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -125,7 +124,7 @@ public class App {
             return new ModelAndView(model, "viral-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //task: process new viral form
+//        //task: process new viral form
         post("/infections", (req, res) -> { //URL to make new task on POST route
             Map<String, Object> model = new HashMap<>();
             List<Category> allCategories = categoryDao.getAll();
@@ -144,7 +143,7 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
 
-        //get: show an individual viral test that is nested in a category
+//        //get: show an individual viral test that is nested in a category
 
         get("/categories/:category_id/infections/:viral_id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -170,7 +169,7 @@ public class App {
             return new ModelAndView(model, "viral-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //loan: process a form to update a task
+        //task: process a form to update a test
         post("/infections/:id", (req, res) -> { //URL to update task on POST route
             Map<String, Object> model = new HashMap<>();
             int viralToEditId = Integer.parseInt(req.params("id"));
