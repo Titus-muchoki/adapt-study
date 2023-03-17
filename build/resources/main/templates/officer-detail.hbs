@@ -1,0 +1,15 @@
+{{#partial "content"}}
+    <h1>{{officer.name}}</h1>
+    <p>Here are all the health officer category available                                                                                 s listed in this category:</p>
+    <ul>
+        {{#each patients}}
+            <li>
+                <p><a href="/officers/{{officer.id}}/patients/{{id}}"></a></p>
+            </li>
+        {{/each}}
+    </ul>
+    <a href="/officers/{{officer.id}}/edit">Edit this health officer</a><br>
+    <a href="/officers/{{officer.id}}/delete">DELETE this officer</a>
+{{/partial}}
+
+{{> layout.hbs}}

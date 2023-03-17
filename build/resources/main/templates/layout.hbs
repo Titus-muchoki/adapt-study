@@ -8,20 +8,20 @@
 <body>
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="/">Home</a></li>
-    <li role="presentation"><a href="/infections/new">Add a New infection</a></li>
+    <li role="presentation"><a href="/patients/new">Add a New patient</a></li>
 
     <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             Category Menu <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            {{#if categories}}
-                {{#each categories}}
-                    <li><a href="/categories/{{id}}">{{name}}</a></li>
+            {{#if officers}}
+                {{#each officers}}
+                    <li><a href="/officers/{{id}}">{{name}}</a></li>
                 {{/each}}
-                <li><a href="/categories/new">Add a Category</a></li>
+                <li><a href="/officers/new">Add a new Officer</a></li>
             {{else}}
-                <li><a href="/categories/new">Add a Category</a></li>
+                <li><a href="/officers/new">Add a new Officer</a></li>
             {{/if}}
         </ul>
     </li>
@@ -31,7 +31,7 @@
     <!--begin main template-->
     <div class="page-header">
         <img src="/images/adapt.jpeg" width="70%" alt="">
-        <h1>Welcome to adapt study. <small>analyze viral test.</small></h1>
+        <h1>Welcome to cheboin. <small>analyze patient data.</small></h1>
     </div>
     <div class="col-md-12">
         {{#block "content"}}
@@ -47,8 +47,8 @@
         <div class="container">
             <hr>
             <p class="text-muted">
-                <a href="/categories/delete">delete all categories & infections</a><br>
-                <a href="/infections/delete">delete all infections</a>
+                <a href="/officers/delete">delete all officers & patients</a><br>
+                <a href="/officers/delete">delete all officers</a>
             </p>
         </div>
     </footer>

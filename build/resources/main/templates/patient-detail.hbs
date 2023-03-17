@@ -1,0 +1,19 @@
+{{#partial "content"}}
+
+    <p>name:{{ patient.name }} </p>
+    <p>Id:{{ patient.nationalId }} </p>
+    <p>Date:{{ patient.treatedDate }} </p>
+    <p>Amount:{{ patient.amount }} </p>
+    <p>Tel:{{ patient.tel }} </p>
+    <p>Infection:{{ patient.infection }} </p>
+    <p>Officer of this patient: {{ officer.name }}</p>
+    <h5>Created At:</h5>
+    <p> {{ viral.createdAt }}</p>
+    <p>
+        <a href="/patients/{{patient.id}}/edit">Edit this patient records</a><br>
+        <a href="/officers/{{patient.officerId}}/patients/{{patient.id}}/delete">DELETE this patient records</a>
+    </p>
+
+{{/partial}}
+
+{{> layout.hbs}}

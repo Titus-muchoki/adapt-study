@@ -1,13 +1,13 @@
 {{#partial "content"}}
 
-    <h1> List of' tests to do!</h1>
+    <h1> List of patient records to analyze!</h1>
 
-    {{#if infections}}
-        {{#each infections }}
-            <p><a href="/categories/{{categoryId}}/infections/{{id}}">{{description}}</a></p>
+    {{#if patients}}
+        {{#each patients }}
+            <p><a href="/officers/{{officerId}}/patients/{{id}}"></a></p>
         {{/each}}
     {{else}}
-        <p>No infections test!</p>
+        <p>No records to analyze!</p>
     {{/if}}
 {{/partial}}
 
