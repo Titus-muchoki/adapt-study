@@ -8,15 +8,12 @@ import java.util.List;
 
 public interface OfficerDao {
     //LIST
-    List<Patient> getAllPatientByOfficer(int officerId);
-
-    List<Officer>getAll();
-
     //CREATE
-
-    void add(Officer category);
+    void add(Officer officer);
 
     //READ
+    List<Officer>getAll();
+    List<Patient> getAllPatientByOfficer(int officerId);
 
     Officer findById(int id);
 

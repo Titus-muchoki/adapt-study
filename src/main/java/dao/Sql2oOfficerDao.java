@@ -14,17 +14,15 @@ public class Sql2oOfficerDao implements OfficerDao {
     public Sql2oOfficerDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
-
-
     @Override
-    public void add(Officer category) {
+    public void add(Officer officer) {
         String sql = "INSERT INTO officers (name) VALUES (:name)"; //raw sql
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
-                    .bind(category)
+                    .bind(officer)
                     .executeUpdate()
                     .getKey();
-            category.setId(id);
+            officer.setId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
@@ -33,7 +31,7 @@ public class Sql2oOfficerDao implements OfficerDao {
     @Override
     public List<Patient> getAllPatientByOfficer(int officerId) {
         try(Connection con = sql2o.open()) {
-            return con.createQuery("SELECT from patients WHERE officerId = :officerId")
+            return con.createQuery("SELECT * FROM patients WHERE officerId = :officerId")
                     .addParameter("officerId", officerId)
                     .executeAndFetch(Patient.class);
 
@@ -56,8 +54,6 @@ public class Sql2oOfficerDao implements OfficerDao {
                     .executeAndFetchFirst(Officer.class);
         }
     }
-
-
     @Override
     public void update(int id, String newName) {
         String sql = "UPDATE officers SET name = :name WHERE id = :id";
@@ -69,10 +65,7 @@ public class Sql2oOfficerDao implements OfficerDao {
         }catch (Sql2oException ex){
             System.out.println(ex);
         }
-
-
     }
-
     @Override
     public void deleteById(int id) {
      String sql = "DELETE from officers WHERE id = :id";
