@@ -2,20 +2,20 @@ package models;
 
 import java.util.Objects;
 
-public class Category {
+public class Officer {
 private String name;
 
 private int id;
 
-    public Category(String name) {
+    public Officer(String name) {
         this.name = name;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Category)) return false;
-        Category category = (Category) o;
+        if (!(o instanceof Officer)) return false;
+        Officer category = (Officer) o;
         return id == category.id && Objects.equals(name, category.name);
     }
 

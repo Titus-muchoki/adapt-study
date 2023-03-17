@@ -1,5 +1,5 @@
-CREATE DATABASE viralloads;
-\c viralloads;
-CREATE TABLE infections (id SERIAL PRIMARY KEY, description VARCHAR,  completed BOOLEAN, categoryid INTEGER);
-CREATE TABLE categories (id SERIAL PRIMARY KEY, name VARCHAR);
-CREATE DATABASE  viralloads_test WITH TEMPLATE  viralloads;
+CREATE DATABASE cheboin;
+\c cheboin;
+CREATE TABLE patients (id SERIAL PRIMARY KEY, name VARCHAR, nationalid VARCHAR, datetreated VARCHAR, infection VARCHAR,  tel VARCHAR, amount VARCHAR,officerid INTEGER );
+CREATE TABLE officers (id SERIAL PRIMARY KEY, name VARCHAR);
+CREATE DATABASE  cheboin_test WITH TEMPLATE  cheboin;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dao.Sql2oOfficerDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-17T07:39:07" hostname="kajela-HP-EliteBook-840-G3" time="0.229">
+  <properties/>
+  <testcase name="getAllPatientByOfficerReturnsAllPatientCorrect" classname="dao.Sql2oOfficerDaoTest" time="0.229"/>
+  <system-out><![CDATA[clearing all database
+close connection
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
