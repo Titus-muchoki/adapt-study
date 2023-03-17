@@ -9,7 +9,30 @@
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="/">Home</a></li>
     <li role="presentation"><a href="/patients/new">Add a New patient</a></li>
+    <li role="presentation"><a href="/officers/new">Add a New patient</a></li>
 
+    <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            patients  Menu <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            {{#if patients}}
+                {{#each patients}}
+                    <li><a href="/patients/{{id}}">{{name}}<br>
+                        {{nationalId}}<br>
+                        {{dateTreated}}<br>
+                        {{infection}}<br>
+                        {{tel}}<br>
+                        {{amount}}<br>
+                        {{officerId}}
+                    </a></li>
+                {{/each}}
+                <!--                <li><a href="/airports/new">Add an airport</a></li>-->
+            {{else}}
+                <!--                <li><a href="/airports/new">Add an airport</a></li>-->
+            {{/if}}
+        </ul>
+    </li>
     <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             Officer Menu <span class="caret"></span>
