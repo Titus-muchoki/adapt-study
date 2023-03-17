@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class Officer {
 private String name;
-
 private int id;
 
     public Officer(String name) {
@@ -15,8 +14,8 @@ private int id;
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Officer)) return false;
-        Officer category = (Officer) o;
-        return id == category.id && Objects.equals(name, category.name);
+        Officer officer = (Officer) o;
+        return id == officer.id && Objects.equals(name, officer.name);
     }
 
     @Override
@@ -35,7 +34,6 @@ private int id;
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }

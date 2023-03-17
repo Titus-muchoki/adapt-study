@@ -183,5 +183,11 @@ public class App {
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
+        get("/patients", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Patient> allPatients = patientDao.getAll();
+            model.put("patients", allPatients);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

@@ -2,9 +2,9 @@
 
     <h1> List of patient records to analyze!</h1>
 
-    {{#if patients}}
+    {{#if patients }}
         {{#each patients }}
-            <p><a href="/officers/{{officerId}}/patients/{{id}}"></a></p>
+            <p><a href="/officers/{{officerId}}/patients/{{id}}">{{name}}</a></p>
         {{/each}}
     {{else}}
         <p>No records to analyze!</p>

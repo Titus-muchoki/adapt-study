@@ -10,8 +10,9 @@ public class Patient {
     private String infection;
     private String tel;
     private String amount;
-    private int id;
     private int officerId;
+
+    private int id;
 
     public Patient(String name, String nationalId, String dateTreated, String infection, String tel, String amount, int officerId) {
         this.name = name;
@@ -28,12 +29,12 @@ public class Patient {
         if (this == o) return true;
         if (!(o instanceof Patient)) return false;
         Patient patient = (Patient) o;
-        return id == patient.id && officerId == patient.officerId && Objects.equals(name, patient.name) && Objects.equals(nationalId, patient.nationalId) && Objects.equals(dateTreated, patient.dateTreated) && Objects.equals(infection, patient.infection) && Objects.equals(tel, patient.tel) && Objects.equals(amount, patient.amount);
+        return officerId == patient.officerId && id == patient.id && Objects.equals(name, patient.name) && Objects.equals(nationalId, patient.nationalId) && Objects.equals(dateTreated, patient.dateTreated) && Objects.equals(infection, patient.infection) && Objects.equals(tel, patient.tel) && Objects.equals(amount, patient.amount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, nationalId, dateTreated, infection, tel, amount, id, officerId);
+        return Objects.hash(name, nationalId, dateTreated, infection, tel, amount, officerId, id);
     }
 
     public String getName() {

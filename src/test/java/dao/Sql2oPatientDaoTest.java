@@ -47,7 +47,7 @@ public class Sql2oPatientDaoTest {
         Patient patient = setupNewPatient();
         patientDao.add(patient); //add to dao (takes care of saving)
         Patient foundPatient = patientDao.findById(patient.getId()); //retrieve
-        assertNotEquals(patient, foundPatient); //should be the same
+        assertEquals(patient, foundPatient); //should be the same
     }
 
     @Test

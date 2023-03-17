@@ -33,7 +33,7 @@ public  class Sql2oPatientDao implements PatientDao {
     @Override
     public List<Patient> getAll() {
         try(Connection con = sql2o.open()) {
-            return con.createQuery("SELECT from patients")
+            return con.createQuery("SELECT * FROM patients")
                     .executeAndFetch(Patient.class);
 
         }
@@ -42,7 +42,7 @@ public  class Sql2oPatientDao implements PatientDao {
     @Override
     public Patient findById(int id) {
         try (Connection con = sql2o.open()){
-            return con.createQuery("SELECT from patients WHERE id = :id")
+            return con.createQuery("SELECT * FROM patients WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Patient.class);
 
@@ -65,7 +65,6 @@ public  class Sql2oPatientDao implements PatientDao {
         }catch (Sql2oException ex){
             System.out.println(ex);
         }
-
     }
     @Override
     public void deleteById(int id) {

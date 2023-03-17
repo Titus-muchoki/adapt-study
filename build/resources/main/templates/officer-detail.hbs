@@ -1,14 +1,14 @@
 {{#partial "content"}}
     <h1>{{officer.name}}</h1>
-    <p>Here are all the health officer category available                                                                                 s listed in this category:</p>
+    <p>Here are all the patient with health officer:</p>
     <ul>
         {{#each patients}}
             <li>
-                <p><a href="/officers/{{officer.id}}/patients/{{id}}">{{name}}<br>{{nationalId}}<br>{{treatedDate}}<br>{{infection}}<br>{{tel}}<br>{{amount}}</a></p>
+                <p><a href="/officers/{{officer.id}}/patients/{{id}}">{{description}} </a></p>
             </li>
         {{/each}}
     </ul>
-    <a href="/officers/{{officer.id}}/edit">Edit this health officer</a><br>
+        <a href="/officers/{{officer.id}}/edit">Edit this officer</a><br>
     <a href="/officers/{{officer.id}}/delete">DELETE this officer</a>
 {{/partial}}
 

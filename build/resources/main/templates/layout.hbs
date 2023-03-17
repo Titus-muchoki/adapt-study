@@ -9,16 +9,17 @@
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="/">Home</a></li>
     <li role="presentation"><a href="/patients/new">Add a New patient</a></li>
-    <li role="presentation"><a href="/officers/new">Add a New patient</a></li>
+    <li role="presentation"><a href="/officers/new">Add a New officer</a></li>
 
     <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             patients  Menu <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            {{#if patients}}
-                {{#each patients}}
-                    <li><a href="/patients/{{id}}">{{name}}<br>
+            {{#if patients }}
+                {{#each patients }}
+                    <li><a href="/patients/{{id}}">
+                        {{name}}<br>
                         {{nationalId}}<br>
                         {{dateTreated}}<br>
                         {{infection}}<br>
@@ -53,7 +54,8 @@
 <div class="container">
     <!--begin main template-->
     <div class="page-header">
-        <img src="/images/adapt.jpeg" width="70%" alt="">
+        <h2>WELCOME TO CHEBOIN DISPENSARY</h2>
+        <img src="/images/adapt.jpeg" width="100%" alt="">
         <h1>Welcome to cheboin. <small>analyze patient data.</small></h1>
     </div>
     <div class="col-md-12">
